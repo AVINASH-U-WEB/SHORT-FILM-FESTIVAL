@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'BankGothic';
+  src: url('./assest/fonts/BankGothic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-bank {
+  font-family: 'BankGothic', sans-serif;
+}

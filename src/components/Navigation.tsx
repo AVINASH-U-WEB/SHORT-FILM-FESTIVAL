@@ -1,107 +1,88 @@
-import React, { useState } from 'react';
-import { Menu, X, Film, ExternalLink, Users } from 'lucide-react';
-import FilmReel from './FilmReel';
+// import React, { useState, useEffect } from 'react';
+// import { Menu, X, Users } from 'lucide-react';
+// import Clapperboard from './Clapperboard';
 
-const Navigation: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+// const Navigation: React.FC = () => {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [isScrolled, setIsScrolled] = useState(false);
 
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800/50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-4">
-            <FilmReel size="small" speed="slow" className="opacity-90" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-white tracking-wider leading-none">
-                CINEMA<span className="text-amber-400">PRO</span>
-              </span>
-              <span className="text-xs text-gray-400 tracking-wide">PROFESSIONALS</span>
-            </div>
-          </div>
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setIsScrolled(window.scrollY > 10);
+//     };
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
 
-          {/* Center Navigation - Desktop Only */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <a href="#about" className="text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-              About Platform
-            </a>
-            <a href="#opportunities" className="text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-              Opportunities
-            </a>
-            <a href="#community" className="text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-              Community
-            </a>
-            <a href="#showcase" className="text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-              Success Stories
-            </span>
-          </div>
+//   return (
+//     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+//       ${isScrolled ? 'bg-dark-slate/80 backdrop-blur-lg shadow-md border-b border-white/10' : 'bg-transparent'}`}>
+//       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+//         {/* Changed to flex container with justify-between for better alignment */}
+//         <div className="flex items-center justify-between h-20">
 
-          {/* Right side actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* Registration Link */}
-            <a
-              href="https://forms.google.com/your-form-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r 
-                from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700
-                text-black font-bold py-3 px-6 rounded-full text-sm
-                transform hover:scale-105 transition-all duration-300
-                shadow-lg hover:shadow-amber-500/25 tracking-wide"
-            >
-              <Users className="w-4 h-4" />
-              <span>JOIN NETWORK</span>
-            </a>
-          </div>
+//           {/* Logo - Stays on the left */}
+//           <a href="#" className="flex items-center space-x-3 flex-shrink-0"> {/* Added flex-shrink-0 to prevent shrinking */}
+//             <Clapperboard size={32} />
+//             <span className="text-xl font-bold tracking-wider leading-none font-serif text-white">
+//               CINEMA<span className="text-sunset">PRO</span>
+//             </span>
+//           </a>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white transition-colors duration-300 p-2"
-            >
-              {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-            </button>
-          </div>
-        </div>
-      </div>
+//           {/* Desktop Navigation - Centered */}
+//           {/* Wrapped navigation links in a div to center them */}
+//           <div className="hidden lg:flex flex-1 items-center justify-center">
+//             <div className="flex items-center space-x-10">
+//               {['About', 'Opportunities', 'Community', 'Success Stories'].map(item => (
+//                 <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="font-medium group text-white hover:text-sunset transition-colors duration-300">
+//                   {item}
+//                   <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sunset mt-0.5"></span>
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-black/98 backdrop-blur-md border-t border-gray-800/50">
-          <div className="px-6 py-6 space-y-4">
-            <a href="#about" className="block py-3 text-gray-300 hover:text-white transition-colors duration-300 font-medium border-b border-gray-800/50">
-              About Platform
-            </a>
-            <a href="#opportunities" className="block py-3 text-gray-300 hover:text-white transition-colors duration-300 font-medium border-b border-gray-800/50">
-              Opportunities
-            </a>
-            <a href="#community" className="block py-3 text-gray-300 hover:text-white transition-colors duration-300 font-medium border-b border-gray-800/50">
-              Community
-            </a>
-            <a href="#showcase" className="block py-3 text-gray-300 hover:text-white transition-colors duration-300 font-medium border-b border-gray-800/50">
-              Success Stories
-            </a>
-            <div className="pt-4">
-              <a
-                href="https://forms.google.com/your-form-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center space-x-2 bg-gradient-to-r 
-                  from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700
-                  text-black font-bold py-4 px-6 rounded-full text-sm
-                  transform hover:scale-105 transition-all duration-300
-                  shadow-lg hover:shadow-amber-500/25 tracking-wide w-full"
-              >
-                <Users className="w-4 h-4" />
-                <span>JOIN PROFESSIONAL NETWORK</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-};
 
-export default Navigation;
+//           {/* Right side actions - Stays on the right */}
+//           <div className="hidden lg:flex items-center">
+//             <a href="#" className="btn-primary">
+//               <Users className="w-5 h-5 mr-2" />
+//               <span>Join Network</span>
+//             </a>
+//           </div>
+
+//           {/* Mobile menu button */}
+//           <div className="lg:hidden">
+//             <button
+//               onClick={() => setIsMenuOpen(!isMenuOpen)}
+//               className="text-white p-2"
+//             >
+//               {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu (No changes here) */}
+//       {isMenuOpen && (
+//         <div className="lg:hidden bg-dark-slate shadow-xl">
+//           <div className="px-6 py-6 space-y-4">
+//             {['About', 'Opportunities', 'Community', 'Success Stories'].map(item => (
+//               <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="block py-2 text-slate-200 font-medium text-lg hover:text-sunset transition-colors">
+//                 {item}
+//               </a>
+//             ))}
+//             <div className="pt-4">
+//               <a href="#" className="btn-primary w-full">
+//                 <Users className="w-5 h-5 mr-2" />
+//                 <span>Join Professional Network</span>
+//               </a>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </nav>
+//   );
+// };
+
+// export default Navigation;
