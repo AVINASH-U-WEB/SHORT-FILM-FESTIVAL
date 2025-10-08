@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 // Import the background and logo images
 import bg from './assest/bg.jpg';
 import logo1 from './assest/logo1.png';
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
         </p>
 
         <p className="font-serif text-2xl md:text-3xl mt-16 font-semibold tracking-wider text-white">
-          INTERNATIONAL
+         CARTEL 24
         </p>
 
         {/* Title with subtle white glow */}
@@ -53,15 +53,17 @@ const Hero: React.FC = () => {
           className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wider my-1 text-white"
           style={{ textShadow: '0px 0px 8px rgba(255,255,255,0.8)' }}
         >
-          SHORT FILM FESTIVAL
+          SHORT FILM AWARDS
         </h1>
         
         <p className=" text-white text-sm sm:text-base md:text-lg italic mt-4 tracking-wide">
-          "FRAME YOUR FUTURE"
+          "DEADLINE -14TH NOV,2025"
         </p>
       </div>
 
       {/* CTA Button placed inside film reel hole */}
+      <Link
+        to="/terms">
       <div
         className="absolute z-30"
         style={{
@@ -83,6 +85,7 @@ const Hero: React.FC = () => {
           <span className="text-xs sm:text-sm md:text-base font-bold tracking-wider">JOURNEY</span>
         </a>
       </div>
+      </Link>
     </section>
   );
 };

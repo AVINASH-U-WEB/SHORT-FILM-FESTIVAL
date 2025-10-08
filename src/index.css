@@ -57,3 +57,25 @@
   background-color: rgba(230, 126, 34, 0.3);
   color: #2c363f;
 }
+
+
+/* Add these styles to the bottom of your existing index.css file */
+
+/* Custom Scrollbar for Webkit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the tracking area */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #f97316; /* The orange color from your button */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ea580c; /* A slightly darker orange for hover */
+}
